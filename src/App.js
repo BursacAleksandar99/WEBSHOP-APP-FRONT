@@ -6,13 +6,36 @@ import About from './pages/About';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from './pages/Login';
 import Registration from './pages/Registration';
+import PrivateRoute from './components/PrivateRoute';
+import { AuthContext } from './helpers/AuthContext';
+import { useState, useEffect,   } from 'react';
+
+
 
 
 function App() {
+
+  const [authState, setAuthState] = useState({
+    username: "", 
+    id: 0, 
+    status: false
+  });
+  
+  useEffect(() =>{
+             const token = localStorage.getItem('token');
+             if(token){
+                 setAuthState({status: true, username: 'someUser', id: 1});
+             } 
+ }, []);
+ const handleLogout = () => {
+  localStorage.removeItem('token');
+  setAuthState({status: false, username: '', id: 0});
+ }
   return (
     
     <div className="App">
-          <Router>
+      <AuthContext.Provider value={{ authState, setAuthState }}>
+      <Router>
             <nav className='navbar navbar-expand-lg navbar-light bg-light'>
               <div className='container-fluid'>
                 <Link className='navbar-brand' to='/'>BURSAC IT SHOP</Link>
@@ -37,6 +60,7 @@ function App() {
                     <Link className='nav-link' to='/registration'>Registration</Link>
 
                     </li>
+                    {authState.status && <button onClick={handleLogout}>Logout</button>}
 
                   </ul>
 
@@ -47,11 +71,16 @@ function App() {
             <Routes>
               <Route path='/' exact Component={Home}/>
               <Route path='/contact' exact Component={Contact}/>
-              <Route path='/about' exact Component={About}/>
+              <Route path='/about' exact Component={() => (<PrivateRoute>
+                <About/>
+              </PrivateRoute>)}/>
               <Route path='/login' exact Component={Login}/>
               <Route path='/registration' exact Component={Registration}/>
             </Routes>
           </Router>
+
+      </AuthContext.Provider>
+          
     </div>
   );
 }
