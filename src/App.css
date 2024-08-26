@@ -39,3 +39,7 @@
 .navbar{
     background-color: red;
 }
+.imageSize{
+  width: 200px;
+  height: 200px;
+}

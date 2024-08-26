@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Contact from './pages/Contact';
 import About from './pages/About';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Processors from './pages/Processors';
 import Login from './pages/Login';
 import Registration from './pages/Registration';
 import PrivateRoute from './components/PrivateRoute';
@@ -53,6 +54,10 @@ function App() {
 
                     </li>
                     <li className='nav-item'>
+                    <Link className='nav-link' to='/processors'>Processors</Link>
+
+                    </li>
+                    <li className='nav-item'>
                     <Link className='nav-link' to='/login'>Login</Link>
 
                     </li>
@@ -72,8 +77,10 @@ function App() {
               <Route path='/' exact Component={Home}/>
               <Route path='/contact' exact Component={Contact}/>
               <Route path='/about' exact Component={() => (<PrivateRoute>
+                
                 <About/>
               </PrivateRoute>)}/>
+              <Route path='/processors' exact Component={Processors}/>
               <Route path='/login' exact Component={Login}/>
               <Route path='/registration' exact Component={Registration}/>
             </Routes>
