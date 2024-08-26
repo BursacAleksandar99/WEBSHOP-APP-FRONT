@@ -10,6 +10,12 @@ import Registration from './pages/Registration';
 import PrivateRoute from './components/PrivateRoute';
 import { AuthContext } from './helpers/AuthContext';
 import { useState, useEffect,   } from 'react';
+import Dropdown from 'react-bootstrap/Dropdown';
+import GraphicCard from './pages/GraphicCards';
+import Ram from './pages/Ram';
+import Motherboards from './pages/Motherboareds';
+import Ssd from './pages/Ssd';
+import PowerSupply from './pages/PowerSupply';
 
 
 
@@ -51,12 +57,25 @@ function App() {
                     </li>
                     <li className='nav-item'>
                     <Link className='nav-link' to='/about'>About</Link>
-
                     </li>
+
                     <li className='nav-item'>
-                    <Link className='nav-link' to='/processors'>Processors</Link>
+                      <Dropdown>
+                        <Dropdown.Toggle variant='light' id='dropdown-basic'>
+                          Components
+                        </Dropdown.Toggle>
+                        <Dropdown.Menu>
+                          <Dropdown.Item as={Link} to='/processors'>Processors</Dropdown.Item>
+                          <Dropdown.Item as={Link} to='/graphicCards'>GraphicCards</Dropdown.Item>
+                          <Dropdown.Item as={Link} to='/ram'>RAM</Dropdown.Item>
+                          <Dropdown.Item as={Link} to='/motherBoards'>Motherboards</Dropdown.Item>
+                          <Dropdown.Item as={Link} to='/ssd'>Ssd discs</Dropdown.Item>
+                          <Dropdown.Item as={Link} to='/ps'>Power Supply</Dropdown.Item>
+                        </Dropdown.Menu>
+                      </Dropdown>
 
                     </li>
+
                     <li className='nav-item'>
                     <Link className='nav-link' to='/login'>Login</Link>
 
@@ -81,6 +100,11 @@ function App() {
                 <About/>
               </PrivateRoute>)}/>
               <Route path='/processors' exact Component={Processors}/>
+              <Route path='/graphicCards' exact Component={GraphicCard}/>
+              <Route path='/ram' exact Component={Ram}/>
+              <Route path='/motherBoards' exact Component={Motherboards}/>
+              <Route path='/ssd' exact Component={Ssd}/>
+              <Route path='/ps' exact Component={PowerSupply}/>
               <Route path='/login' exact Component={Login}/>
               <Route path='/registration' exact Component={Registration}/>
             </Routes>
