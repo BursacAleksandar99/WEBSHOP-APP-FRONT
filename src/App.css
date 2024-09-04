@@ -39,12 +39,30 @@
 .navbar{
     background-color: red;
 }
-.imageSize{
-  width: 200px;
-  height: 200px;
+.img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;    
+  height: 200px; 
+  overflow: hidden; 
 }
-.fitImgHeight{
-  object-fit: cover;
-  height: 200px;
-  width: 150px;
+
+.img-container img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.card:hover {
+  
+  background-color: #f0f0f0;
+  transition: background-color 0.3s ease, border 0.3s ease; 
+  cursor: pointer;
+}
+.card-img-top {
+  transition: transform 0.3s ease;
+}
+
+.card:hover .card-img-top {
+  transform: scale(1.1); 
 }

@@ -11,11 +11,12 @@ import PrivateRoute from './components/PrivateRoute';
 import { AuthContext } from './helpers/AuthContext';
 import { useState, useEffect,   } from 'react';
 import Dropdown from 'react-bootstrap/Dropdown';
-import GraphicCard from './pages/GraphicCards';
+import GraphicsCards from './pages/GraphicsCards';
 import Ram from './pages/Ram';
 import Motherboards from './pages/Motherboareds';
 import Ssd from './pages/Ssd';
 import PowerSupply from './pages/PowerSupply';
+
 
 
 
@@ -100,7 +101,7 @@ function App() {
                 <About/>
               </PrivateRoute>)}/>
               <Route path='/processors' exact Component={Processors}/>
-              <Route path='/graphicCards' exact Component={GraphicCard}/>
+              <Route path='/graphicCards' exact Component={GraphicsCards}/>
               <Route path='/ram' exact Component={Ram}/>
               <Route path='/motherBoards' exact Component={Motherboards}/>
               <Route path='/ssd' exact Component={Ssd}/>
