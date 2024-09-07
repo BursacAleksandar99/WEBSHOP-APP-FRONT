@@ -20,7 +20,7 @@ const Processors = () => {
 
     return(
     <div className="container my-4">
-        <h1 className="text-center mb-4">Processors</h1>
+        <h1 className="text-center mb-4">PROCESSORS</h1>
         <div className="row">
             {processors.map((processor) => (
                 <div key={processor.id} className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
@@ -37,7 +37,7 @@ const Processors = () => {
                         <p className="card-title">Boost Clock: {processor.boostClock} GHz</p>
                         <p className="card-title">Price: {processor.price}din</p>
                         </div>
-                        <button className="btn btn-primary mt-3">Dodaj u korpu</button>
+                        <button className="btn btn-primary mt-3 cart-button">ADD TO CART</button>
                         
                     </div>
                 </div>

@@ -16,6 +16,7 @@ import Ram from './pages/Ram';
 import Motherboards from './pages/Motherboareds';
 import Ssd from './pages/Ssd';
 import PowerSupply from './pages/PowerSupply';
+import Footer from './pages/Footer';
 
 
 
@@ -44,29 +45,29 @@ function App() {
     <div className="App">
       <AuthContext.Provider value={{ authState, setAuthState }}>
       <Router>
-            <nav className='navbar navbar-expand-lg navbar-light bg-light'>
+            <nav className='navbar navbar-expand-lg navbar-light nav-menu-color'>
               <div className='container-fluid'>
-                <Link className='navbar-brand' to='/'>BURSAC IT SHOP</Link>
+                <Link className='navbar-brand text-white' to='/'>BURSAC IT SHOP</Link>
                 
                 <div className='collapse navbar-collapse' id='navbarNav'>
                   <ul className='navbar-nav'>
                   <li className='nav-item'>
-                    <Link className='nav-link' to='/'>Home</Link>
+                    <Link className='nav-link text-white' to='/'>Home</Link>
                     </li>
                     <li className='nav-item'>
-                    <Link className='nav-link' to='/contact'>Contact</Link>
+                    <Link className='nav-link text-white' to='/contact'>Contact</Link>
                     </li>
                     <li className='nav-item'>
-                    <Link className='nav-link' to='/about'>About</Link>
+                    <Link className='nav-link text-white' to='/about'>About</Link>
                     </li>
 
                     <li className='nav-item'>
                       <Dropdown>
-                        <Dropdown.Toggle variant='light' id='dropdown-basic'>
+                        <Dropdown.Toggle variant='light' id='dropdown-basic' className='custom-toggle'>
                           Components
                         </Dropdown.Toggle>
                         <Dropdown.Menu>
-                          <Dropdown.Item as={Link} to='/processors'>Processors</Dropdown.Item>
+                          <Dropdown.Item as={Link} to='/processors'>PROCESSORS</Dropdown.Item>
                           <Dropdown.Item as={Link} to='/graphicCards'>GraphicCards</Dropdown.Item>
                           <Dropdown.Item as={Link} to='/ram'>RAM</Dropdown.Item>
                           <Dropdown.Item as={Link} to='/motherBoards'>Motherboards</Dropdown.Item>
@@ -76,13 +77,14 @@ function App() {
                       </Dropdown>
 
                     </li>
-
+                  </ul>
+                  <ul className='navbar-nav log-reg-margine'>
                     <li className='nav-item'>
-                    <Link className='nav-link' to='/login'>Login</Link>
+                    <Link className='nav-link text-white' to='/login'>Login</Link>
 
                     </li>
                     <li className='nav-item'>
-                    <Link className='nav-link' to='/registration'>Registration</Link>
+                    <Link className='nav-link text-white' to='/registration'>Registration</Link>
 
                     </li>
                     {authState.status && <button onClick={handleLogout}>Logout</button>}
@@ -109,6 +111,7 @@ function App() {
               <Route path='/login' exact Component={Login}/>
               <Route path='/registration' exact Component={Registration}/>
             </Routes>
+            <Footer/>
           </Router>
 
       </AuthContext.Provider>

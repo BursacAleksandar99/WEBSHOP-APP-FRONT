@@ -1,3 +1,7 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
 .App {
   text-align: center;
 }
@@ -37,7 +41,8 @@
   }
 }
 .navbar{
-    background-color: red;
+    background-color: #1E3A5F
+    
 }
 .img-container {
   display: flex;
@@ -55,9 +60,10 @@
 
 .card:hover {
   
-  background-color: #f0f0f0;
+  background-color: #343A40;
   transition: background-color 0.3s ease, border 0.3s ease; 
   cursor: pointer;
+  color: #ffffff;
 }
 .card-img-top {
   transition: transform 0.3s ease;
@@ -65,4 +71,46 @@
 
 .card:hover .card-img-top {
   transform: scale(1.1); 
+}
+
+footer {
+  
+  bottom: 0;
+  width: 100%;
+  background-color: #343A40;
+  color: #FFFFFF;
+  text-align: center;
+  padding: 5px 0;
+  font-size: 14px;
+}
+
+.nav-menu-color{
+  background-color: #343A40;
+}
+
+.custom-toggle {
+  background-color: #343A40 !important;
+  color: #ffffff !important;
+  border-color: #343A40 !important;
+}
+
+.custom-toggle:hover{
+  background-color: #FFFFFF !important;
+  color: #343A40 !important;
+  border-color: #FFFFFF !important;
+}
+
+.log-reg-margine{
+  margin-left: auto;
+}
+
+.cart-button{
+  background-color: #343A40 !important;
+  border-color: #343A40 !important;
+}
+
+.cart-button:hover{
+  background-color: #FFFFFF !important;
+  border-color: #FFFFFF !important;
+  color: #343A40 !important;
 }
