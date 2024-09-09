@@ -17,6 +17,8 @@ import Motherboards from './pages/Motherboareds';
 import Ssd from './pages/Ssd';
 import PowerSupply from './pages/PowerSupply';
 import Footer from './pages/Footer';
+import { CartProvider } from './helpers/CartContext';
+import Cart from './pages/Cart';
 
 
 
@@ -44,6 +46,7 @@ function App() {
     
     <div className="App">
       <AuthContext.Provider value={{ authState, setAuthState }}>
+        <CartProvider>
       <Router>
             <nav className='navbar navbar-expand-lg navbar-light nav-menu-color'>
               <div className='container-fluid'>
@@ -87,6 +90,10 @@ function App() {
                     <Link className='nav-link text-white' to='/registration'>Registration</Link>
 
                     </li>
+                    <li className='nav-item'>
+                    <Link className='nav-link text-white' to='/cart'>Cart</Link>
+
+                    </li>
                     {authState.status && <button onClick={handleLogout}>Logout</button>}
 
                   </ul>
@@ -110,9 +117,11 @@ function App() {
               <Route path='/ps' exact Component={PowerSupply}/>
               <Route path='/login' exact Component={Login}/>
               <Route path='/registration' exact Component={Registration}/>
+              <Route path='/cart' exact Component={Cart}/>
             </Routes>
             <Footer/>
           </Router>
+          </CartProvider>
 
       </AuthContext.Provider>
           
