@@ -5,7 +5,7 @@ function Cart(){
 
     const { cartItems } = useContext(CartContext);
     return(
-        <div>
+        <div className="mt-5">
             <h2>Your Cart</h2>
             {cartItems.length === 0 ?(
                 <p>Your cart is empty</p>

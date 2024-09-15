@@ -23,7 +23,7 @@ const GraphicsCards = () => {
 
     return(
         <div className="container my-4">
-            <h1 className="text-center mb-4">Graphics Cards</h1>
+            <h1 className="text-center mb-4 mt-5">Graphics Cards</h1>
             <div className="row">
                 {graphicsCards.map((graphicCard) => (
                     <div key={graphicCard.id} className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">

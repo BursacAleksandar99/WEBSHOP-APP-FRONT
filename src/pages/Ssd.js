@@ -19,7 +19,7 @@ const Ssd = () => {
     
 
     return(
-        <div className="container">
+        <div className="container mt-5">
             <h1>SSD discs</h1>
             <div className="row">
                 {ssd.map((ssd) => (

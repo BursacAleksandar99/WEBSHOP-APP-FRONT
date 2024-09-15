@@ -16,7 +16,7 @@ const Motherboards = () => {
         fetchMotherboards();
     }, []);
     return(
-        <div className="container">
+        <div className="container mt-5">
             <h1>Graphics Cards</h1>
             <div className="row">
                 {motherboards.map((motherboards) => (

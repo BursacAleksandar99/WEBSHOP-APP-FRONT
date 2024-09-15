@@ -19,7 +19,7 @@ const Ram = () => {
     }, []);
 
     return(
-        <div className="container">
+        <div className="container mt-5">
             <h1>Ram memory</h1>
             <div className="row">
                 {ram.map((ram) => (

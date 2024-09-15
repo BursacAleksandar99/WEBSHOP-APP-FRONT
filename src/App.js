@@ -48,7 +48,7 @@ function App() {
       <AuthContext.Provider value={{ authState, setAuthState }}>
         <CartProvider>
       <Router>
-            <nav className='navbar navbar-expand-lg navbar-light nav-menu-color'>
+            <nav className='navbar navbar-expand-lg navbar-light nav-menu-color fixed-top'>
               <div className='container-fluid'>
                 <Link className='navbar-brand text-white' to='/'>BURSAC IT SHOP</Link>
                 

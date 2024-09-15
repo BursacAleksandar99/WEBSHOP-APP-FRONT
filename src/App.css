@@ -114,3 +114,25 @@ footer {
   border-color: #FFFFFF !important;
   color: #343A40 !important;
 }
+
+/* .home-container {
+  position: relative;
+  text-align: center;
+  background-image: url('https://res.cloudinary.com/djdzumd6m/image/upload/v1726411110/HOME_PAGE_AI_4_rzn7qz.png'); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll; 
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  padding: 20px;
+  background-color: transparent;
+  height: 100vh;
+}
+*/

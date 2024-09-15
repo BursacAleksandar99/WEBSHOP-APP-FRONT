@@ -1,11 +1,15 @@
 import React from "react";
+import '../Home.css';
 
 function Home() {
     return(
-        <div className="container text-center mt-3 col-lg-4 col-md-6 col-sm-12">
-            <h1 className="display-4">HOME PAGE</h1>
-            <p className="lead">This is the contact page of our website.</p>
-    </div>
+        <div className="home-container col-sm-12 col-md-12 col-lg-12">
+            <div className="content">
+                <h1 className="display-4 text-center">BURSAC IT SHOP</h1>
+                <p className="p-tag-color">The place you'll want to shop </p>
+                
+            </div>
+        </div>
     )
     
 }

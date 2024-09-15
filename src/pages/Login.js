@@ -28,7 +28,7 @@ function Login(){
     }
 
     return(
-        <div>
+        <div className="mt-5">
       <h1>Login Page</h1>
       <form onSubmit={handleLogin}>
         <div>
