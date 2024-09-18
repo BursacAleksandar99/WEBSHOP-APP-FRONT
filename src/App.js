@@ -1,5 +1,5 @@
 import './App.css';
-import {BrowserRouter as Router, Route, Routes, Link} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Routes, Link, useLocation} from 'react-router-dom';
 import Home from './pages/Home';
 import Contact from './pages/Contact';
 import About from './pages/About';
@@ -19,6 +19,9 @@ import PowerSupply from './pages/PowerSupply';
 import Footer from './pages/Footer';
 import { CartProvider } from './helpers/CartContext';
 import Cart from './pages/Cart';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import AllComponents from './pages/AllComponents';
 
 
 
@@ -42,9 +45,13 @@ function App() {
   localStorage.removeItem('token');
   setAuthState({status: false, username: '', id: 0});
  }
+
+  // const location = useLocation();
+
+  // const isHomeOrContact = location.pathname === '/' || location.pathname === '/contact';
   return (
     
-    <div className="App">
+    <div className='App'>
       <AuthContext.Provider value={{ authState, setAuthState }}>
         <CartProvider>
       <Router>
@@ -57,13 +64,6 @@ function App() {
                   <li className='nav-item'>
                     <Link className='nav-link text-white' to='/'>Home</Link>
                     </li>
-                    <li className='nav-item'>
-                    <Link className='nav-link text-white' to='/contact'>Contact</Link>
-                    </li>
-                    <li className='nav-item'>
-                    <Link className='nav-link text-white' to='/about'>About</Link>
-                    </li>
-
                     <li className='nav-item'>
                       <Dropdown>
                         <Dropdown.Toggle variant='light' id='dropdown-basic' className='custom-toggle'>
@@ -80,6 +80,12 @@ function App() {
                       </Dropdown>
 
                     </li>
+                    <li className='nav-item'>
+                    <Link className='nav-link text-white' to='/contact'>Contact</Link>
+                    </li>
+                    <li className='nav-item'>
+                    <Link className='nav-link text-white' to='/about'>About</Link>
+                    </li>
                   </ul>
                   <ul className='navbar-nav log-reg-margine'>
                     <li className='nav-item'>
@@ -91,7 +97,7 @@ function App() {
 
                     </li>
                     <li className='nav-item'>
-                    <Link className='nav-link text-white' to='/cart'>Cart</Link>
+                    <Link className='nav-link text-white' to='/cart'>Cart <FontAwesomeIcon  icon={faShoppingCart} /></Link>
 
                     </li>
                     {authState.status && <button onClick={handleLogout}>Logout</button>}
@@ -118,6 +124,7 @@ function App() {
               <Route path='/login' exact Component={Login}/>
               <Route path='/registration' exact Component={Registration}/>
               <Route path='/cart' exact Component={Cart}/>
+              <Route path='/AllComponents' exact Component={AllComponents}/>
             </Routes>
             <Footer/>
           </Router>

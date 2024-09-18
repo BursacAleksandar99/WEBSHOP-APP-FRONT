@@ -1,6 +1,19 @@
 /* Home.css */
 .home-container {
-    background-image: url('https://res.cloudinary.com/djdzumd6m/image/upload/v1726411110/HOME_PAGE_AI_4_rzn7qz.png'); /* Postavi svoju sliku */
+    background-image:linear-gradient(to right, #343A40 40%, rgba(255, 255, 255, 0)), 
+    url('https://res.cloudinary.com/djdzumd6m/image/upload/v1726411110/HOME_PAGE_AI_4_rzn7qz.png'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.home-container-for-contact{
+    background-image:url('https://res.cloudinary.com/djdzumd6m/image/upload/v1726411110/HOME_PAGE_AI_4_rzn7qz.png'); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -12,6 +25,7 @@
     align-items: center;
 }
 
+
 .content {
     padding: 20px;
     height: 30%; 
@@ -20,10 +34,22 @@
     color: white;
     margin-bottom: 10%;
     font-size: 26px;
-    background-color: rgba(52, 58, 64, 0.7);
-    border-radius: 10%;
+    /* background-color: rgba(52, 58, 64, 0.7);
+    border-radius: 10%; */
     
     
+}
+.content-2{
+    
+    padding: 20px;
+    margin-bottom: 10%;
+}
+.content-image {
+    transition: transform 0.3s ease, border-color 0.3s ease; 
+    border: 2px solid transparent;
+}
+.content-image:hover {
+    transform: scale(1.1);
 }
 
 .p-tag-color{

@@ -5,6 +5,7 @@ import { CartContext } from "../helpers/CartContext";
 const Processors = () => {
     const [processors, setProcessors] = useState([]);
     const{ addToCart } = useContext(CartContext);
+    const [ sortType, setSortType ] = useState('price-asc');
 
 
 
@@ -20,12 +21,39 @@ const Processors = () => {
         fetchProcessors();
     }, []);
 
+    const sortProducts = (processors, sortType) => {
+        let sortedProcessors = [...processors];
+        if (sortType === 'price-asc') {
+            sortedProcessors.sort((a, b) => a.price - b.price);
+        } else if (sortType === 'price-desc') {
+            sortedProcessors.sort((a, b) => b.price - a.price);
+        } else if (sortType === 'name-asc') {
+            sortedProcessors.sort((a, b) => a.model.localeCompare(b.model));
+        } else if (sortType === 'name-desc') {
+            sortedProcessors.sort((a, b) => b.model.localeCompare(a.model));
+        } else if(sortType === 'cores-asc'){
+            sortedProcessors.sort((a, b) => a.cores - b.cores);
+        }else if(sortType === 'cores-desc'){
+            sortedProcessors.sort((a,b) => b.cores - a.cores);
+        }
+        return sortedProcessors;
+    };
+
     return(
-    <div className="container my-4">
+    <div className="container my-4 ">
         <h1 className="text-center mb-4 mt-5">PROCESSORS</h1>
         <div className="row">
-            {processors.map((processor) => (
+                <select onChange={(e) => setSortType(e.target.value)}>
+                            <option value="price-asc">Sort by price (low to high)</option>
+                            <option value="price-desc">Sort by price (high to low)</option>
+                            <option value="name-asc">Sort by name (A-Z)</option>
+                            <option value="name-desc">Sort by name (Z-A)</option>
+                            <option value="cores-asc">Sort by core number(low to high)</option>
+                            <option value="cores-desc">Sort by core number(high to low)</option>
+                    </select>
+                {sortProducts(processors, sortType).map((processor) => (
                 <div key={processor.id} className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                    
                     <div className="card h-100">
                         <div className="img-container">
                             {processor.imageUrl && <img className="card-img-top img-fluid " src={`http://localhost:3001/${processor.imageUrl}`} alt={`${processor.name} ${processor.model}`} />}
