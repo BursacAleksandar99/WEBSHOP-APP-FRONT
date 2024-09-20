@@ -25,7 +25,7 @@ function Registration(){
         }
     };
     return(
-        <div className="registration-container mt-5">
+        <div className="registration-container mt-5 container">
             <h2>Register</h2>
             {errorMessage && <p style={{color: 'red'}}>{errorMessage}</p>}
             {successMessage && <p style={{color: 'green'}}>{successMessage}</p>}

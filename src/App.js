@@ -29,6 +29,15 @@ import AllComponents from './pages/AllComponents';
 
 function App() {
 
+  // window.onload = function(){
+  //   const footer = document.querySelector('.footer');
+  //   const container = document.querySelector('.container');
+
+  //   if(window.innerHeight > document.body.offsetHeight){
+  //     container.computedStyleMap.minHeight =  `${window.innerHeight - footer.offsetHeight}px`;
+  //   }
+  // }
+
   const [authState, setAuthState] = useState({
     username: "", 
     id: 0, 

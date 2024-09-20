@@ -67,7 +67,7 @@ const Processors = () => {
                         <p className="card-title">Boost Clock: {processor.boostClock} GHz</p>
                         <p className="card-title">Price: {processor.price}din</p>
                         </div>
-                        <button className="btn btn-primary mt-3 cart-button" onClick={() => addToCart(processor)}>ADD TO CART</button>
+                        <button className="btn btn-primary mt-3 cart-button" onClick={() => addToCart(processor, 'processor')}>ADD TO CART</button>
                         
                     </div>
                 </div>

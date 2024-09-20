@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 function Home() {
     return(
-        <div className="home-container row">
+        <div className="home-container row ">
             <div className="content col-12 col-md-6">
                 <h1 className="display-4 ">BURSAC IT SHOP</h1>
                 <p className="p-tag-color">The place you'll want to shop </p>

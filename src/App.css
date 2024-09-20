@@ -4,13 +4,13 @@ html, body {
   
 }
 body {
-  overflow: -moz-scrollbars-none; /* Firefox */
-  -ms-overflow-style: none;  /* Internet Explorer 10+ */
-  scrollbar-width: none; /* Firefox */
+  overflow: -moz-scrollbars-none; 
+  -ms-overflow-style: none;  
+  scrollbar-width: none; 
 }
 
 body::-webkit-scrollbar { 
-  display: none;  /* Chrome, Safari, Opera */
+  display: none;  
 }
 .App {
   text-align: center;
@@ -86,13 +86,17 @@ body::-webkit-scrollbar {
 
 footer {
   
-  bottom: 0;
-  width: 100%;
   background-color: #343A40;
-  color: #FFFFFF;
+  color: #ffffff;
   text-align: center;
-  padding: 5px 0;
-  font-size: 14px;
+  padding: 20px 0;
+  width: 100%;
+  margin-top: auto;
+  
+}
+.container{
+  padding-bottom: 100px;
+  min-height: calc(100vh - 100px);
 }
 
 .nav-menu-color{
@@ -136,7 +140,7 @@ footer {
   margin-top: 5% !important;
 }
 .home-container {
-  background-image: url('https://res.cloudinary.com/djdzumd6m/image/upload/v1726411110/HOME_PAGE_AI_4_rzn7qz.png'); /* Postavi svoju sliku */
+  background-image: url('https://res.cloudinary.com/djdzumd6m/image/upload/v1726411110/HOME_PAGE_AI_4_rzn7qz.png'); 
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -149,4 +153,7 @@ footer {
 }
 .text-white:hover{
   color: goldenrod !important;
+}
+.range-size{
+  width: 200px;
 }
