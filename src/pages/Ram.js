@@ -1,9 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
+import { CartContext } from "../helpers/CartContext";
 
 const Ram = () => {
 
     const[ram, setRam] = useState([]);
+    const { addToCart } = useContext(CartContext);
+    const [ sortType, setSortType ] = useState('price-asc');
+    const [ priceRange, setPriceRange ] = useState(50000);
 
     useEffect(() => {
         const fetchRam = async() => {
@@ -18,23 +22,69 @@ const Ram = () => {
         
     }, []);
 
+    const sortProducts = (rams, sortType) => {
+        let sortedRams = [...rams];
+        if(sortType === 'price-asc') {
+            sortedRams.sort((a, b) => a.price - b.price);
+        }else if(sortType === 'price-desc') {
+            sortedRams.sort((a, b) => b.price - a.price);
+        }else if (sortType === 'size-asc'){
+            sortedRams.sort((a, b) => a.memorySize - b.memorySize);
+        }else if (sortType === 'size-desc') {
+            sortedRams.sort((a, b) =>b.memorySize - a.memorySize);
+        }else if(sortType === 'frequency-asc'){
+            sortedRams.sort((a, b) => a.frequency - b.frequency);
+        }else if(sortType === 'frequency-desc'){
+            sortedRams.sort((a, b) => b.frequency - a.frequency);
+        }
+        return sortedRams.filter((ram) => ram.price <= priceRange);
+    }
+
     return(
-        <div className="container mt-5">
-            <h1>Ram memory</h1>
+        <div className="container my-4">
+            <h1 className="text-center mb-4 mt-5">RAM MEMORY</h1>
             <div className="row">
-                {ram.map((ram) => (
-                    <div key={ram.id} className="col-md-4 mb-4">
-                        <div>
-                        {ram.imageUrl && <img className="card-img-top img-fluid " src={`http://localhost:3001/${ram.imageUrl}`} alt={`${ram.name} ${ram.model}`} />}
-                        </div>
-                        <div className="card-body">
-                            <h5 className="card-title">Model: {ram.model}</h5>
-                            <p className="card-text">Memory size: {ram.memorySize}GB</p>
-                            <p className="card-text">Memory type: {ram.memoryType}</p>
-                            <p className="card-text">Frequency: {ram.frequency}Mhz</p>
-                            <p className="card-text">Price: {ram.price}din</p>
+                <div className="col-md-6">
+                    <select onChange={(e) => setSortType(e.target.value)}>
+                        <option value="price-asc">Sort by price (low to high)</option>
+                        <option value="price-desc">Sort by price (high to low)</option>
+                        <option value="size-asc">Sort by memory size (low to high)</option>
+                        <option value="size-desc">Sort by memory size (high to low)</option>
+                        <option value="frequency-asc">Sort by frequency(low to high)</option>
+                        <option value="frequency-desc">Sort by frequency(high to low)</option>
+                    </select>
+                </div>
+                <div className="col-md-6 range-size">
+                    <label>Max price: {priceRange}din</label>
+                    <input
+                        type="range"
+                        className="form-range"
+                        min='0'
+                        max='50000'
+                        step='2000'
+                        value={priceRange}
+                        onChange={(e) => setPriceRange(Number(e.target.value))}
+                        style={{width: '200px'}}
+                    />
+            </div>
+                {sortProducts(ram, sortType).map((ram) => (
+                    <div key={ram.id} className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                        <div className="card h-100">
+                            <div className="img-container">
+                                {ram.imageUrl && <img className="card-img-top img-fluid " src={`http://localhost:3001/${ram.imageUrl}`} alt={`${ram.name} ${ram.model}`} />}
+                            </div>
+                            <div className="card-body">
+                                <h5 className="card-title">Model: {ram.model}</h5>
+                                <p className="card-text">Memory size: {ram.memorySize}GB</p>
+                                <p className="card-text">Memory type: {ram.memoryType}</p>
+                                <p className="card-text">Frequency: {ram.frequency}Mhz</p>
+                                <p className="card-text">Price: {ram.price}din</p>
                             
-                        </div>
+                            </div>
+                            <button className="btn btn-primary mt-3 cart-button" onClick={() =>addToCart(ram, 'ram')}>ADD TO CART</button>
+
+                            </div>
+                        
 
                     </div>
                 ))}

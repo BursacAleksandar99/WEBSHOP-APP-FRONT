@@ -6,7 +6,7 @@ const Processors = () => {
     const [processors, setProcessors] = useState([]);
     const{ addToCart } = useContext(CartContext);
     const [ sortType, setSortType ] = useState('price-asc');
-
+    const [priceRange, setPriceRange ] = useState(250000);
 
 
     useEffect(() => {
@@ -36,13 +36,14 @@ const Processors = () => {
         }else if(sortType === 'cores-desc'){
             sortedProcessors.sort((a,b) => b.cores - a.cores);
         }
-        return sortedProcessors;
+        return sortedProcessors.filter((processor) => processor.price <= priceRange);
     };
 
     return(
     <div className="container my-4 ">
         <h1 className="text-center mb-4 mt-5">PROCESSORS</h1>
         <div className="row">
+            <div className="col-md-6">
                 <select onChange={(e) => setSortType(e.target.value)}>
                             <option value="price-asc">Sort by price (low to high)</option>
                             <option value="price-desc">Sort by price (high to low)</option>
@@ -51,6 +52,22 @@ const Processors = () => {
                             <option value="cores-asc">Sort by core number(low to high)</option>
                             <option value="cores-desc">Sort by core number(high to low)</option>
                     </select>
+
+            </div>
+            <div className="col-md-6 range-size">
+                    <label>Max price: {priceRange}din</label>
+                    <input
+                        type="range"
+                        className="form-range"
+                        min='0'
+                        max='250000'
+                        step='5000'
+                        value={priceRange}
+                        onChange={(e) => setPriceRange(Number(e.target.value))}
+                        style={{width: '200px'}}
+                    />
+            </div>
+                
                 {sortProducts(processors, sortType).map((processor) => (
                 <div key={processor.id} className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
                     

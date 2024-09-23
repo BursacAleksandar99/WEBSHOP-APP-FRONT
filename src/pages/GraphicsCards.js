@@ -46,16 +46,16 @@ const GraphicsCards = () => {
     return(
         
         <div className="container my-4">
-            <h1 className="text-center mb-4 mt-5">Graphics Cards</h1>
+            <h1 className="text-center mb-4 mt-5">GRAPHICS CARDS</h1>
             <div className="row">
                 <div className="col-md-6">
                 <select onChange={(e) => setSortType(e.target.value)}>
-                    <option value="price-asc">Sort by price(low to high)</option>
-                    <option value="price-desc">Sort by price(high to low)</option>
+                    <option value="price-asc">Sort by price (low to high)</option>
+                    <option value="price-desc">Sort by price (high to low)</option>
                     <option value="name-asc">Sort by name (A-Z)</option>
                     <option value="name-desc">Sort by name (Z-A)</option>
-                    <option value="memorySize-asc">Sort by memory size(low to high)</option>
-                    <option value="memorySize-desc">Sort by memory size(high to low)</option>
+                    <option value="memorySize-asc">Sort by memory size (low to high)</option>
+                    <option value="memorySize-desc">Sort by memory size (high to low)</option>
                 </select>
 
                 </div>
