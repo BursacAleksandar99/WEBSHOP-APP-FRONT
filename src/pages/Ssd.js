@@ -27,6 +27,10 @@ const Ssd = () => {
             sortedSsds.sort((a, b) => a.price - b.price);
         }else if(sortType === 'price-desc'){
             sortedSsds.sort((a, b) => b.price - a.price);
+        }else if(sortType === 'memorySize-asc'){
+            sortedSsds.sort((a, b) => a.memorySize - b.memorySize);
+        }else if(sortType === 'memorySize-desc'){
+            sortedSsds.sort((a, b) => b.memorySize - a.memorySize);
         }
         return sortedSsds.filter((ssd) => ssd.price <= priceRange);
     }
@@ -42,8 +46,6 @@ const Ssd = () => {
                         <option value="price-desc">Sort by price (high to low)</option>
                         <option value="memorySize-asc">Sort by memory size (low to high)</option>
                         <option value="memorySize-desc">Sort by memory size (high to low)</option>
-                        <option value="frequency-asc">Sort by frequency(low to high)</option>
-                        <option value="frequency-desc">Sort by frequency(high to low)</option>
                     </select>
             </div>
             <div className="col-md-6 range-size">
@@ -68,10 +70,10 @@ const Ssd = () => {
                         <div className="bard-body">
                             <h5 className="card-title">Model: {ssd.model}</h5>
                             <p className="card-text">Interface: {ssd.interface}</p>
-                            <p className="card-text">Memory size: {ssd.memorySize}</p>
-                            <p className="card-text">Writing speed: {ssd.writingSpeed}</p>
-                            <p className="card-text">Reading speed: {ssd.readingSpeed}</p>
-                            <p className="card-text">Price: {ssd.price}</p>
+                            <p className="card-text">Memory size: {ssd.memorySize}GB</p>
+                            <p className="card-text">Writing speed: {ssd.writingSpeed}MB/s</p>
+                            <p className="card-text">Reading speed: {ssd.readingSpeed}MB/s</p>
+                            <p className="card-text">Price: {ssd.price}din</p>
                             
                         </div>
                         <button className="btn btn-primary mt-3 cart-button mt-auto" onClick={() =>addToCart(ssd, 'ssds')}>ADD TO CART</button>

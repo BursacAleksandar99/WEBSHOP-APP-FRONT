@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState, useContext, useCallback } from "react";
 import axios from "axios";
 import { CartContext } from "../helpers/CartContext";
 
@@ -7,7 +7,9 @@ const Processors = () => {
     const{ addToCart } = useContext(CartContext);
     const [ sortType, setSortType ] = useState('price-asc');
     const [priceRange, setPriceRange ] = useState(250000);
-
+    const [selectedCores, setSelectedCores] = useState("");
+    const [filteredProcessors, setFilteredProcessors] = useState([]);
+    const [selectedBrand, setSelectedBrand] = useState([]);
 
     useEffect(() => {
         const fetchProcessors = async () => {
@@ -21,7 +23,25 @@ const Processors = () => {
         fetchProcessors();
     }, []);
 
-    const sortProducts = (processors, sortType) => {
+    useEffect(() => {
+        
+        let tempProcessors = [...processors];
+        if(selectedCores !== ""){
+            tempProcessors = tempProcessors.filter((processors) => 
+            processors.cores === parseInt(selectedCores));
+        }
+        if(selectedBrand && typeof selectedBrand === "string"){
+            tempProcessors = tempProcessors.filter((processors) => 
+            processors.model.toLowerCase().includes(selectedBrand.toLowerCase()));
+        }
+        const sortedProcessors = sortProducts(tempProcessors, sortType);
+        
+        setFilteredProcessors(sortedProcessors);
+        
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [selectedCores, selectedBrand, sortType, processors, ])
+
+    const sortProducts = useCallback((processors, sortType) => {
         let sortedProcessors = [...processors];
         if (sortType === 'price-asc') {
             sortedProcessors.sort((a, b) => a.price - b.price);
@@ -37,13 +57,13 @@ const Processors = () => {
             sortedProcessors.sort((a,b) => b.cores - a.cores);
         }
         return sortedProcessors.filter((processor) => processor.price <= priceRange);
-    };
+    },[priceRange]);
 
     return(
     <div className="container my-4 ">
         <h1 className="text-center mb-4 mt-5">PROCESSORS</h1>
         <div className="row">
-            <div className="col-md-6">
+            <div className="col-md-4">
                 <select onChange={(e) => setSortType(e.target.value)}>
                             <option value="price-asc">Sort by price (low to high)</option>
                             <option value="price-desc">Sort by price (high to low)</option>
@@ -54,7 +74,7 @@ const Processors = () => {
                     </select>
 
             </div>
-            <div className="col-md-6 range-size">
+            <div className="col-md-4 range-size">
                     <label>Max price: {priceRange}din</label>
                     <input
                         type="range"
@@ -67,8 +87,24 @@ const Processors = () => {
                         style={{width: '200px'}}
                     />
             </div>
+            <div className="col-md-4">
+                <label>CORES:</label><select onChange={(e) => setSelectedCores(e.target.value)}>
+                        <option value="">All</option>
+                        <option value="4">4 cores</option>
+                        <option value="6">6 cores</option>
+                        <option value="8">8 cores</option>
+                        <option value="12">12 cores</option>
+                </select>
+                <select onChange={(e) => setSelectedBrand(e.target.value)}>
+                    <option value="">All brands</option>
+                    <option value="Intel">Intel</option>
+                    <option value="Ryzen">Ryzen</option>
+                </select>
                 
-                {sortProducts(processors, sortType).map((processor) => (
+
+            </div>
+                
+                {sortProducts(filteredProcessors, sortType).map((processor) => (
                 <div key={processor.id} className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
                     
                     <div className="card h-100">
