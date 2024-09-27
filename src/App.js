@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Contact from './pages/Contact';
 import About from './pages/About';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import Processors from './pages/Processors';
 import Login from './pages/Login';
 import Registration from './pages/Registration';
@@ -67,6 +68,10 @@ function App() {
             <nav className='navbar navbar-expand-lg navbar-light nav-menu-color fixed-top'>
               <div className='container-fluid'>
                 <Link className='navbar-brand text-white' to='/'>BURSAC IT SHOP</Link>
+
+               <button className="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span className="navbar-toggler-icon"></span>
+    </button> 
                 
                 <div className='collapse navbar-collapse' id='navbarNav'>
                   <ul className='navbar-nav'>
