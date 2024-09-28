@@ -30,14 +30,14 @@ import AllComponents from './pages/AllComponents';
 
 function App() {
 
-  // window.onload = function(){
-  //   const footer = document.querySelector('.footer');
-  //   const container = document.querySelector('.container');
+  const [isOpen, setIsOpen] = useState(false);
 
-  //   if(window.innerHeight > document.body.offsetHeight){
-  //     container.computedStyleMap.minHeight =  `${window.innerHeight - footer.offsetHeight}px`;
-  //   }
-  // }
+  const toggleNavbar = () => {
+    setIsOpen(!isOpen);
+  };
+  const closeNavbar = () => {
+    setIsOpen(false);
+  };
 
   const [authState, setAuthState] = useState({
     username: "", 
@@ -69,14 +69,22 @@ function App() {
               <div className='container-fluid'>
                 <Link className='navbar-brand text-white' to='/'>BURSAC IT SHOP</Link>
 
-               <button className="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span className="navbar-toggler-icon"></span>
-    </button> 
+               <button 
+               className="navbar-toggler custom-toggler" 
+               type="button" 
+               data-bs-toggle="collapse" 
+               data-bs-target="#navbarNav" 
+               aria-controls="navbarNav" 
+               aria-expanded={isOpen} 
+               aria-label="Toggle navigation" 
+               onClick={toggleNavbar}>
+                        <span className="navbar-toggler-icon"></span>
+                </button> 
                 
-                <div className='collapse navbar-collapse' id='navbarNav'>
+                <div className={`collapse navbar-collapse ${isOpen ? 'show' : ''}`}>
                   <ul className='navbar-nav'>
                   <li className='nav-item'>
-                    <Link className='nav-link text-white' to='/'>Home</Link>
+                    <Link className='nav-link text-white' to='/' onClick={closeNavbar}>Home</Link>
                     </li>
                     <li className='nav-item'>
                       <Dropdown>
@@ -84,34 +92,34 @@ function App() {
                           Components
                         </Dropdown.Toggle>
                         <Dropdown.Menu>
-                          <Dropdown.Item as={Link} to='/processors'>PROCESSORS</Dropdown.Item>
-                          <Dropdown.Item as={Link} to='/graphicCards'>GraphicCards</Dropdown.Item>
-                          <Dropdown.Item as={Link} to='/ram'>RAM</Dropdown.Item>
-                          <Dropdown.Item as={Link} to='/motherBoards'>Motherboards</Dropdown.Item>
-                          <Dropdown.Item as={Link} to='/ssd'>Ssd discs</Dropdown.Item>
-                          <Dropdown.Item as={Link} to='/ps'>Power Supply</Dropdown.Item>
+                          <Dropdown.Item as={Link} to='/processors'onClick={closeNavbar}>PROCESSORS</Dropdown.Item>
+                          <Dropdown.Item as={Link} to='/graphicCards'onClick={closeNavbar}>GraphicCards</Dropdown.Item>
+                          <Dropdown.Item as={Link} to='/ram'onClick={closeNavbar}>RAM</Dropdown.Item>
+                          <Dropdown.Item as={Link} to='/motherBoards'onClick={closeNavbar}>Motherboards</Dropdown.Item>
+                          <Dropdown.Item as={Link} to='/ssd'onClick={closeNavbar}>Ssd discs</Dropdown.Item>
+                          <Dropdown.Item as={Link} to='/ps'onClick={closeNavbar}>Power Supply</Dropdown.Item>
                         </Dropdown.Menu>
                       </Dropdown>
 
                     </li>
                     <li className='nav-item'>
-                    <Link className='nav-link text-white' to='/contact'>Contact</Link>
+                    <Link className='nav-link text-white' to='/contact'onClick={closeNavbar}>Contact</Link>
                     </li>
                     <li className='nav-item'>
-                    <Link className='nav-link text-white' to='/about'>About</Link>
+                    <Link className='nav-link text-white' to='/about'onClick={closeNavbar}>About</Link>
                     </li>
                   </ul>
                   <ul className='navbar-nav log-reg-margine'>
                     <li className='nav-item'>
-                    <Link className='nav-link text-white' to='/login'>Login</Link>
+                    <Link className='nav-link text-white' to='/login'onClick={closeNavbar}>Login</Link>
 
                     </li>
                     <li className='nav-item'>
-                    <Link className='nav-link text-white' to='/registration'>Registration</Link>
+                    <Link className='nav-link text-white' to='/registration'onClick={closeNavbar}>Registration</Link>
 
                     </li>
                     <li className='nav-item'>
-                    <Link className='nav-link text-white' to='/cart'>Cart <FontAwesomeIcon  icon={faShoppingCart} /></Link>
+                    <Link className='nav-link text-white' to='/cart'onClick={closeNavbar}>Cart <FontAwesomeIcon  icon={faShoppingCart} /></Link>
 
                     </li>
                     {authState.status && <button onClick={handleLogout}>Logout</button>}

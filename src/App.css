@@ -159,7 +159,7 @@ footer {
 }
 
 .navbar-toggler.custom-toggler {
-  border-color: white
+  border-color: white;
 }
 
 .navbar-toggler.custom-toggler .navbar-toggler-icon {
@@ -194,7 +194,7 @@ footer {
   transform: translateY(-50%);
 }
 
-/* Kada je navbar otvoren, promeni izgled hamburger ikonice */
+
 .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::before {
   transform: rotate(45deg);
   top: 35%;
@@ -205,6 +205,4 @@ footer {
   bottom: 50%;
 }
 
-.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon div {
-  opacity: 0;
-}
+
