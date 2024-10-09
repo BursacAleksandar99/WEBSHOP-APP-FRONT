@@ -1,14 +1,19 @@
 import React from "react";
 import '../App.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPhone } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
+import { faClock } from "@fortawesome/free-solid-svg-icons";
 
 function Contact()  {
     return(
-    <div className="container mt-5 my-4 home-container-for-contact">
-        <div className="row">
-            <div className="col-12 col-md-6 mt-custom">
+    <div className="home-container-for-contact mt-5">
+        <div className="col-12 row mt-custom justify-content-center gap-5">
+            <div className="col-md-5 col-sm-6 contact-background">
                 <h1>CONTACT US HERE!</h1>
                 <form>
-                    <div className="mb-3">
+                    <div className="mb-3 ">
                         <label htmlFor="name" className="form-label">Name:</label>
                         <input
                             type="text"
@@ -56,21 +61,21 @@ function Contact()  {
                 </form>
             </div>
 
-            <div className="col-12 col-md-6  mt-5 ">
-                <div className="p-4 mt-custom" style={{ backgroundColor: '#f8f9fa', borderRadius: '5px' }}>
-                    <h3>EMAIL: aleksandarbursac150699@gmail.com</h3>
-                    <h2>PHONE: +381 641272155</h2>
-                    <h2>ADDRESS: Nikole Tesle 147, Apatin 25260</h2>
-                    <h2>Mon-Fri 9am - 5pm</h2>
+            <div className=" col-md-5 col-sm-6 contact-background ">
+                <div className="p-4 mt-custom col-md-12 mt-custom-contact">
+                    <h3><FontAwesomeIcon icon={faEnvelope} /> EMAIL: aleksandarbursac150699@gmail.com</h3>
+                    <h2><FontAwesomeIcon icon={faPhone} /> PHONE: +381 641272155</h2>
+                    <h2><FontAwesomeIcon icon={faMapMarkerAlt}/> ADDRESS: Nikole Tesle 147, Apatin 25260</h2>
+                    <h2><FontAwesomeIcon icon={faClock}/> Mon-Fri 9am - 5pm</h2>
                 </div>
-            </div>
+            </div>s
 
         </div>
             
        
        
         <div className=" mt-5">
-            <h2 className="text-center mb-4">Our Location</h2>
+            <h2 className="text-center mb-4" style={{color: "white"}}>Our Location</h2>
             <div className="map-container" >
             <iframe
             title="Google Maps"

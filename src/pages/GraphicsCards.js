@@ -11,7 +11,7 @@ const GraphicsCards = () => {
     useEffect(() => {
         const fetchGraphicsCards = async() => {
             try{
-                const response = await axios.get("https://webshop-app-back-production.up.railway.app/graphicsCards");
+                const response = await axios.get("http://localhost:3001/graphicsCards");
                 setGraphicsCards(response.data);
             }catch(error){
                 console.error("There was an error fetching the graphics cards!", error);
