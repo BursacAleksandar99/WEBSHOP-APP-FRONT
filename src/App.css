@@ -1,7 +1,8 @@
 html, body {
   height: 100%;
   margin: 0;
-  
+  padding: 0;
+  box-sizing: border-box;
 }
 body {
   overflow: -moz-scrollbars-none; 
@@ -147,10 +148,45 @@ footer {
   flex-direction: column;
 }
 .contact-background{
-  border: 2px solid white;
+  
   background-color: rgba(52, 58, 64, 0.5);
   color: white;
+  border-radius: 15%;
   
+}
+.btn-custom {
+  background-color: #343A40; 
+  color: goldenrod; 
+  border: 2px solid goldenrod; 
+  padding: 10px 20px; 
+  font-size: 1.2rem; 
+  cursor: pointer; 
+  transition: all 0.3s ease; 
+  width: 25%;
+  border-radius: 20px;
+}
+.btn-custom:hover {
+  background-color: goldenrod; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+  color: #343A40; ;
+}
+.icon-color{
+  color: #D0D0D0;
+}
+.icon-color:hover{
+  color: white;
+  cursor: pointer;
+}
+
+.footer-position{
+  position: relative !important;
+  
+}
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 
@@ -166,13 +202,13 @@ footer {
   justify-content: center;
   align-items: center;
 }
-.home-container-for-contact{
+
+.contact-page-container{
   background-image:url('https://res.cloudinary.com/djdzumd6m/image/upload/v1726411110/HOME_PAGE_AI_4_rzn7qz.png'); 
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed; 
-  height: 100vh;
+  background-attachment: fixed;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -184,7 +220,9 @@ footer {
 .range-size{
   width: 200px;
 }
-
+nav{
+  position: relative !important;
+}
 .navbar-toggler.custom-toggler {
   border-color: white;
 }
@@ -232,4 +270,48 @@ footer {
   bottom: 50%;
 }
 
+/* 
 
+
+
+.border-line4{
+  border: 5px solid goldenrod;
+  width: 600px;
+  height: 400px;
+} */
+.border-line0{
+  
+  width: 100vw;
+  min-height: 100%;
+  position: relative;
+  display: flex;
+  gap: 20px;
+  
+}
+.border-line1{
+  border: 2px solid white;
+  width: 100vw;
+  height: 600px;
+  margin-top: 5vh !important;
+  border-radius: 50px;
+  background-color: rgba(52, 58, 64, 0.7);
+  color: white;
+}
+.border-line2{
+  border: 2px solid white;
+  width: 100vw;
+  height: 600px;
+  margin-top: 5vh !important;
+  border-radius: 50px;
+  background-color: rgba(52, 58, 64, 0.7);
+  color: white;
+}
+.border-line3{
+  /* border: 5px solid lightblue; */
+  width: 100vw;
+  height: 400px;
+}
+.row {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}

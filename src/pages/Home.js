@@ -19,6 +19,8 @@ function Home() {
                     <h3><FontAwesomeIcon style={{color: 'white', padding: '10px'}} icon={faArrowAltCircleUp} size="2x"/></h3>
                     <h3 style={{color: 'white', padding: '5px'}}>CLICK HERE TO FIND BEST COMPONENTS FOR YOUR PC!</h3>
             </div>
+            
+            
         </div>
     )
     

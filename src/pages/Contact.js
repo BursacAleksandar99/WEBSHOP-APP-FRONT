@@ -8,10 +8,10 @@ import { faClock } from "@fortawesome/free-solid-svg-icons";
 
 function Contact()  {
     return(
-    <div className="home-container-for-contact mt-5">
-        <div className="col-12 row mt-custom justify-content-center gap-5">
-            <div className="col-md-5 col-sm-6 contact-background">
-                <h1>CONTACT US HERE!</h1>
+    <div className="containter contact-page-container">
+        <div className="row  border-line0 justify-content-center  col-12">
+            <div className="border-line1 col-lg-5 col-md-6 col-sm-12">
+            <h1>CONTACT US HERE!</h1>
                 <form>
                     <div className="mb-3 ">
                         <label htmlFor="name" className="form-label">Name:</label>
@@ -57,24 +57,24 @@ function Contact()  {
                         </textarea>
 
                     </div>
-                    <button type="submit" className="btn btn-primary">Send</button>
+                    <button type="submit" className="btn-custom">Send</button>
                 </form>
+
+
+            </div>
+            <div className="border-line2 col-lg-5 col-md-6 col-sm-12">
+            <div className="p-4 mt-custom  mt-custom-contact">
+                    <h3><FontAwesomeIcon className="icon-color" icon={faEnvelope} /> EMAIL: aleksandarbursac150699@gmail.com</h3>
+                    <h2><FontAwesomeIcon className="icon-color" icon={faPhone} /> PHONE: +381 641272155</h2>
+                    <h2><FontAwesomeIcon className="icon-color" icon={faMapMarkerAlt}/> ADDRESS: Nikole Tesle 147, Apatin 25260</h2>
+                    <h2><FontAwesomeIcon className="icon-color" icon={faClock}/> Mon-Fri 9am - 5pm</h2>
+                </div>
+
+
             </div>
 
-            <div className=" col-md-5 col-sm-6 contact-background ">
-                <div className="p-4 mt-custom col-md-12 mt-custom-contact">
-                    <h3><FontAwesomeIcon icon={faEnvelope} /> EMAIL: aleksandarbursac150699@gmail.com</h3>
-                    <h2><FontAwesomeIcon icon={faPhone} /> PHONE: +381 641272155</h2>
-                    <h2><FontAwesomeIcon icon={faMapMarkerAlt}/> ADDRESS: Nikole Tesle 147, Apatin 25260</h2>
-                    <h2><FontAwesomeIcon icon={faClock}/> Mon-Fri 9am - 5pm</h2>
-                </div>
-            </div>s
-
-        </div>
-            
-       
-       
-        <div className=" mt-5">
+            <div className="border-line3 col-lg-6 col-md-6 col-sm-12">
+            <div className=" mt-5 col-12 ">
             <h2 className="text-center mb-4" style={{color: "white"}}>Our Location</h2>
             <div className="map-container" >
             <iframe
@@ -95,8 +95,16 @@ function Contact()  {
 
             </div>
 
+            </div>
+
+            </div>
+
+
         </div>
+        
+
     </div>
+    
         
     )
 }
