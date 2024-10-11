@@ -62,8 +62,7 @@ function Login(){
       <div className="login-div1 col-lg-6 col-sm-12 ">
         
         <div className="login-div1-2">
-            <p>Do you want a new gaming computer or 
-              are you looking to take your business to the next level?</p>
+            <p>Do you want a new gaming computer?</p>
               <p>You're in the right place!</p>
           </div>
         <div className="login-div1-1">

@@ -12,6 +12,11 @@
     justify-content: center;
     align-items: center;
 }
+@media (max-width: 768px) {
+    .home-container {
+      background-attachment: scroll; 
+    }
+  }
 .home-container-for-contact{
     background-image:url('https://res.cloudinary.com/djdzumd6m/image/upload/v1726411110/HOME_PAGE_AI_4_rzn7qz.png'); 
     background-size: cover;

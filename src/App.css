@@ -195,7 +195,7 @@ footer {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed; 
+  background-attachment: scroll; 
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -213,6 +213,11 @@ footer {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+@media (max-width: 768px) {
+  .contact-page-container {
+    background-attachment: scroll; 
+  }
 }
 .text-white:hover{
   color: #FFD700 !important;
@@ -370,5 +375,5 @@ nav{
   
   width: 100%;
   min-height: 100vh;
-  background-color: #FFD700;
+  background-color: #bba318;
 }
