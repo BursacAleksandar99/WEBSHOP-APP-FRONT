@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 
 function Login(){
@@ -28,35 +29,6 @@ function Login(){
     }
 
     return(
-    //     <div className="mt-5 container">
-    //   <h1>Login Page</h1>
-    //   <form onSubmit={handleLogin}>
-    //     <div>
-    //       <label htmlFor="username">Username:</label>
-    //       <input
-    //         type="text"
-    //         id="username"
-    //         value={username}
-    //         onChange={(e) => setUsername(e.target.value)}
-    //         placeholder="Enter your username"
-    //         required
-    //       />
-    //     </div>
-    //     <div>
-    //       <label htmlFor="password">Password:</label>
-    //       <input
-    //         type="password"
-    //         id="password"
-    //         value={password}
-    //         onChange={(e) => setPassword(e.target.value)}
-    //         placeholder="Enter your password"
-    //         required
-    //       />
-    //     </div>
-    //     <button type="submit">Login</button>
-    //   </form>
-    //   {error && <p style={{ color: 'red' }}>{error}</p>}
-    // </div>
     <div className=" login-div0 col-12 row">
 
       <div className="login-div1 col-lg-6 col-sm-12 ">
@@ -78,6 +50,52 @@ function Login(){
 
       
       <div className="login-div2 col-lg-6 col-sm-12 ">
+        <div className="login-div2-1">
+        
+       <form onSubmit={handleLogin} className="login-div2-2">
+        <h2>Welcome back</h2>
+         <div className="login-div2-3">
+           <label htmlFor="username">Username:</label>
+           <input
+             type="text"
+             id="username"
+             value={username}
+             onChange={(e) => setUsername(e.target.value)}
+             placeholder="Enter your username"
+             required
+           />
+         </div>
+         <div className="login-div2-3">
+           <label htmlFor="password">Password:</label>
+          <input
+          
+             type="password"
+             id="password"
+             value={password}
+             onChange={(e) => setPassword(e.target.value)}
+             placeholder="Enter your password"
+             required
+           />
+         </div>
+         <div>
+          <div className="login-div2-4">
+              <label>Forgot password?</label>
+          </div>
+          <button className="btn-login" type="submit">Login</button>
+         </div>
+         <div className="login-div2-4">
+              <label>Don't have an account?</label>
+              <label>
+                <Link to="/registration">Sing up</Link>
+              </label>
+         </div>
+         
+         
+       </form>
+      {error && <p style={{ color: 'red' }}>{error}</p>}
+          
+
+        </div>
       
       </div>
 
