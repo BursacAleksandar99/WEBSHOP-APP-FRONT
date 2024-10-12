@@ -14,7 +14,9 @@ function Login(){
 
 
     const toggleView = () => {
-      setShowLogin(!showLogin);
+      setShowLogin(prevState => {
+        // console.log("New state:", !prevState);
+        return !prevState; });
     }
 
     const handleLogin = (event) => {
@@ -36,9 +38,8 @@ function Login(){
 
     return(
     <div className=" login-div0 col-12 row">
-
-      <div className={`login-div1 ${showLogin ? "hidden" : ""} col-lg-6 col-sm-12 `}
-      style={{display: showLogin ? "none" : "block"}}>
+      <div className={`login-div1 ${showLogin ? "hidden-login-div2" : ""} col-lg-6 col-sm-12 `}>
+      
         
         <div className="login-div1-2">
             <p>Do you want a new gaming computer?</p>
@@ -51,14 +52,13 @@ function Login(){
         <div className="login-div-1-3">
             <h1>WELCOME BACK TO BURSAC IT SHOP!</h1>
         </div>
-        <button onClick={toggleView}>Preceed to login</button>
+        <button className="btn-proceed-login" onClick={toggleView}>Preceed to login</button>
         
       </div>
 
 
       
-      <div className={`login-div2 ${showLogin ? "" : "hidden"} col-lg-6 col-sm-12 `}
-      style={{display: showLogin ? "block" : "none"}}>
+      <div className={`login-div2 ${showLogin ? "show-login-div2" : "hidden-login-div2" } col-lg-6 col-sm-12 `}>
         <div className="login-div2-1">
         
        <form onSubmit={handleLogin} className="login-div2-2">
@@ -101,6 +101,7 @@ function Login(){
          
          
        </form>
+       {/* <button onClick={toggleView}>Preceed to login</button> */}
       {error && <p style={{ color: 'red' }}>{error}</p>}
           
 

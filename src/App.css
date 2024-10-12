@@ -438,9 +438,36 @@ nav{
   justify-content: space-between;
   padding: 10px 0px;
 }
-
-@media (max-width: 768px){
+@media(min-width: 768px){
+  .login-div1,
+  .login-div2{
+    display: flex;
+    display: flex;
+  }
+}
+@media(max-width: 767px){
+  .login-div1,
+  .login-div2{
+    width: 100%;
+  }
   .login-div2{
     display: none;
   }
+  .show-login-div2 {
+    display: flex; 
+    
+  }
+  .hidden-login-div2 {
+    display: none;  
+  }
+}
+.btn-proceed-login{
+  width: 20%;
+  background-color: #FFD700;
+  padding: 10px;
+  border: none;
+  color: #343A40;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 20px;
 }
