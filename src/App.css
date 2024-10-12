@@ -438,3 +438,9 @@ nav{
   justify-content: space-between;
   padding: 10px 0px;
 }
+
+@media (max-width: 768px){
+  .login-div2{
+    display: none;
+  }
+}
