@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from 'axios';
+import { Link } from "react-router-dom";
 
 function Registration(){
 
@@ -25,28 +26,48 @@ function Registration(){
         }
     };
     return(
-        <div className="registration-container mt-5 container">
-            <h2>Register</h2>
+        // <div className="registration-container mt-5 container">
+        //     
+        // </div>
+        <div className="reg-div0 col-lg-12 col-sm-12">
+            <div className="reg-div1">
+                    <h1>Register</h1>
+            </div>
+                
+            <div className="reg-div2">
             {errorMessage && <p style={{color: 'red'}}>{errorMessage}</p>}
-            {successMessage && <p style={{color: 'green'}}>{successMessage}</p>}
-            <form onSubmit={handleSubmit}>
-                <div className="form-group">
-                <label>Username:</label>
-                    <input
-                    type="text" className="form-control" value={username} onChange={(e) => setUsername(e.target.value)} required
-                    />
-                </div>
-                <div className="form-group">
-                <label>Password:</label>
-                    <input
-                    type="password" className="form-control" value={password} onChange={(e) => setPassword(e.target.value)} required
-                    />
-                </div>
+             {successMessage && <p style={{color: 'green'}}>{successMessage}</p>}
+             <div className="reg-form"  onSubmit={handleSubmit}>
+                 <div className="form-group reg-label">
+                 <label>Username:</label>
+                     <input
+                     type="text" className="reg-input" value={username} onChange={(e) => setUsername(e.target.value)} required
+                     />
+                 </div>
+                 <div className="form-group reg-label">
+                    
+                 <label>Password:</label>
+                     <input
+                     type="password" className="reg-input" value={password} onChange={(e) => setPassword(e.target.value)} required
+                     />
+                 </div>
+                    <div className="reg-acc">
+                        <label>Already registered?</label>
+                        <label>
+                        <Link to="/login">Login</Link>
+                        </label>
+                    </div>
                 
                 
-                <button type="submit" className="btn btn-primary">Register</button>
+                 <button type="submit" className="reg-btn">Register</button>
 
-            </form>
+             </div>
+
+            </div>
+             
+
+            
+
         </div>
     )
 }
