@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { Link } from "react-router-dom";
@@ -11,6 +11,11 @@ function Login(){
     const [error, setError] = useState('');
     const navigate = useNavigate();
     const [showLogin, setShowLogin] = useState(false);
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 992);
+
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 992)
+    }
 
 
     const toggleView = () => {
@@ -18,9 +23,17 @@ function Login(){
         // console.log("New state:", !prevState);
         return !prevState; });
     }
+    useEffect(() => {
+      window.addEventListener('resize', handleResize);
+      return () => {
+        window.removeEventListener('resize', handleResize);
+      }
+    }, [])
 
     const handleLogin = (event) => {
     event.preventDefault();
+
+    
 
     axios.post('http://localhost:3001/users/login', {username, password}).then(response => {
         localStorage.setItem('token', response.data.token);
@@ -52,7 +65,13 @@ function Login(){
         <div className="login-div-1-3">
             <h1>WELCOME BACK TO BURSAC IT SHOP!</h1>
         </div>
-        <button className="btn-proceed-login" onClick={toggleView}>Preceed to login</button>
+        
+          {
+            isMobile && <button className="btn-proceed-login d-lg-none" onClick={toggleView}>Preceed to login</button>
+          }
+          
+        
+        
         
       </div>
 
