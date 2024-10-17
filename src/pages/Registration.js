@@ -6,6 +6,7 @@ function Registration(){
 
     const[username, setUsername] = useState('');
     const[password, setPassword] = useState('');
+    const[email, setEmail] = useState('');
     const[errorMessage, setErrorMessage] = useState('');
     const[successMessage, setSuccessMessage] = useState('');
 
@@ -14,7 +15,7 @@ function Registration(){
 
         try{
             const response = await axios.post('http://localhost:3001/users/register', {
-                username, password
+                username, password, email
             });
             setSuccessMessage('Registration successful!');
             setErrorMessage("");
@@ -37,7 +38,14 @@ function Registration(){
             <div className="reg-div2">
             {errorMessage && <p style={{color: 'red'}}>{errorMessage}</p>}
              {successMessage && <p style={{color: 'green'}}>{successMessage}</p>}
-             <div className="reg-form"  onSubmit={handleSubmit}>
+             <form className="reg-form"  onSubmit={handleSubmit}>
+                 <div className="form-group reg-label">
+                    <label>Email:</label>
+                     <input
+                     type="text" className="reg-input" value={email} onChange={(e) => setEmail(e.target.value)} required
+                     />
+                 </div>
+
                  <div className="form-group reg-label">
                  <label>Username:</label>
                      <input
@@ -61,7 +69,7 @@ function Registration(){
                 
                  <button type="submit" className="reg-btn">Register</button>
 
-             </div>
+             </form>
 
             </div>
              

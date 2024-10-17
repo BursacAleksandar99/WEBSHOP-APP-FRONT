@@ -54,7 +54,7 @@
     border: 2px solid transparent;
     max-width: 100%;
     height: auto;
-    display: block;
+   
 }
 .content-image:hover {
     transform: scale(1.1);

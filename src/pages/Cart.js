@@ -22,7 +22,7 @@ function Cart(){
                             alt={`${item.name}`}
                             style={{ width: '100px', height: '100px' }} 
                         /> 
-                            {item.name} - {item.quantity} X {item.price} din
+                            {item.name} {item.model} - {item.quantity} X {item.price} din
                             <button className="btn btn-primary" onClick={() => removeFromCart(item.uniqueKey)}>Delete item</button>
                         </li>
                     ))}
