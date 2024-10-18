@@ -23,6 +23,7 @@ import Cart from './pages/Cart';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import AllComponents from './pages/AllComponents';
+import AddProcessor from './pages/AddItem';
 
 
 
@@ -147,6 +148,7 @@ function App() {
               <Route path='/registration' exact Component={Registration}/>
               <Route path='/cart' exact Component={Cart}/>
               <Route path='/AllComponents' exact Component={AllComponents}/>
+              <Route path='/addItem' exact Component={AddProcessor}/>
             </Routes>
             <Footer/>
           </Router>

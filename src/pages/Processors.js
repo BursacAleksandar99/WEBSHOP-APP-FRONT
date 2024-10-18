@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext, useCallback } from "react";
 import axios from "axios";
 import { CartContext } from "../helpers/CartContext";
+import { Link } from "react-router-dom";
 
 const Processors = () => {
     const [processors, setProcessors] = useState([]);
@@ -103,6 +104,7 @@ const Processors = () => {
                 
 
             </div>
+            <button><Link to='/addItem'>Add item</Link></button>
                 
                 {sortProducts(filteredProcessors, sortType).map((processor) => (
                 <div key={processor.id} className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
@@ -119,6 +121,7 @@ const Processors = () => {
                         <p className="card-title">Base Clock: {processor.baseClock} GHz</p>
                         <p className="card-title">Boost Clock: {processor.boostClock} GHz</p>
                         <p className="card-title">Price: {processor.price}din</p>
+                        <Link to='/'></Link>
                         </div>
                         <button className="btn btn-primary mt-3 cart-button" onClick={() => addToCart(processor, 'processor')}>ADD TO CART</button>
                         
