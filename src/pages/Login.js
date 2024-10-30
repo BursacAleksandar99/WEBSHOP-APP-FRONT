@@ -38,6 +38,7 @@ function Login(){
     axios.post('http://localhost:3001/users/login', {username, password}).then(response => {
         localStorage.setItem('token', response.data.token);
         console.log('Login successful', response.data);
+        
 
         navigate('/');
         window.location.reload();
